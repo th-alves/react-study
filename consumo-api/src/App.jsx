@@ -1,21 +1,20 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useEffect, useState } from "react";
 
-function App() {
-  const [data, setData] = useState([]);
-
-  useEffect((value) => {
-    axios
-      .get(`https://rickandmortyapi.com/api/character/${value}`)
-      .then((response) => setData(response.data));
-  }, []);
+const App = () => {
+  const result = fetch("https://dummyjson.com/products/1")
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      return data;
+    });
 
   return (
-    <div>
-      <input type="number" name="" id="" />
-      <input type="submit" value="Enviar" />
+    <div className="body">
+      <h2>teste</h2>
+      <p>title: {result.title}</p>
+      <p>description: {result.description}</p>
     </div>
   );
-}
+};
 
 export default App;
